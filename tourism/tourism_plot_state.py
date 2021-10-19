@@ -1,8 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-import warnings
-
 # load the data
 df = pd.read_csv("tourism.csv", parse_dates=True).drop(columns=["Unnamed: 0"])
 
