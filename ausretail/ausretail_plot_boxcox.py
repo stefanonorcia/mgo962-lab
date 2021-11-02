@@ -20,18 +20,21 @@ dfs = dfs.groupby("Month")
 dft = dfs['Turnover'].agg(sum)
 axs[0][0].set_title("Turnover")
 axs[0][0].plot(dft)
+axs[0][0].grid()
 
 dfl = dfs['Log'].agg(sum)
 axs[0][1].set_title("Log")
 axs[0][1].plot(dfl, label='Log')
+axs[0][1].grid()
 
 dfsq = dfs['Sqr'].agg(sum)
 axs[1][1].set_title("Sqr")
 axs[1][1].plot(dfsq, label='Sqr')
+axs[1][1].grid()
 
 dfi = dfs['Inv'].agg(sum)
 axs[1][0].set_title("Inv")
 axs[1][0].plot(dfi, label='Inv')
+axs[1][0].grid()
 
-plt.grid()
 plt.show()
