@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 # Load the diabetes dataset
 diabetes_X, diabetes_y = datasets.load_diabetes(return_X_y=True)
 
-print(diabetes_X)
+# print(diabetes_X)
 
 # Use only one feature
 diabetes_X = diabetes_X[:, np.newaxis, 2]
@@ -29,6 +29,7 @@ diabetes_y_pred = regr.predict(diabetes_X_test)
 
 # The coefficients
 print("Coefficients: \n", regr.coef_)
+print("Intercept: \n", regr.intercept_)
 # The mean squared error
 print("Mean squared error: %.2f" % mean_squared_error(diabetes_y_test, diabetes_y_pred))
 # The coefficient of determination: 1 is perfect prediction
