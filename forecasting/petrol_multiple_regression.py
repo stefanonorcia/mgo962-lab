@@ -3,6 +3,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 from sklearn.metrics import r2_score
+import statsmodels.api as sm
+
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -43,3 +45,12 @@ print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 print("Coefficient of determination: %.2f" % r2_score(y_test, y_pred))
+
+
+X_train = sm.add_constant(X_train)
+
+model = sm.OLS(y_train, X_train).fit()
+predictions = model.predict(X_train)
+
+print_model = model.summary()
+print(print_model)
