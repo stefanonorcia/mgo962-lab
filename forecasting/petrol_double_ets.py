@@ -7,6 +7,7 @@ from sklearn.metrics import mean_squared_error
 from statsmodels.tsa.holtwinters import SimpleExpSmoothing
 from matplotlib import pyplot as plt
 from statsmodels.tsa.holtwinters import Holt
+from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 
 def MAPE(y, yhat):
@@ -51,8 +52,10 @@ plt.title('Original data after split')
 plt.show()
 
 model = Holt(np.asarray(train['Consumption']))
+model = ExponentialSmoothing(np.asarray(train['Consumption']),
+                             trend='additive')
 
-model_fit = model.fit(smoothing_level=0.8, smoothing_slope=0.2, optimized=False)
+model_fit = model.fit()
 
 print('')
 print('==Holt model Exponential Smoothing Parameters ==')

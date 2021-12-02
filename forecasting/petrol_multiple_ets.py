@@ -53,9 +53,8 @@ plt.title('Original data after split')
 plt.show()
 
 pred1 = ExponentialSmoothing(np.asarray(train['Consumption']),
-                             trend='additive',
-                             damped_trend=False,
-                             seasonal='additive',
+                             trend='multiplicative',
+                             seasonal='multiplicative',
                              seasonal_periods=12).fit()
 
 print('')
